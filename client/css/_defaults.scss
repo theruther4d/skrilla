@@ -1,0 +1,114 @@
+@function getPrimary( $baseColor ) {
+	$h: hue( $baseColor ) - 84;
+	$s: saturation( $baseColor ) + 60;
+	$l: lightness( $baseColor ) + 21;
+
+	@return hsla( $h, $s, $l, 1);
+}
+
+@function getSecondary( $baseColor ) {
+	$h: hue( $baseColor ) - 193;
+	$s: saturation( $baseColor ) + 93;
+	$l: lightness( $baseColor ) + 47;
+
+	@return hsla( $h, $s, $l, 1);
+}
+
+$dark: #2e3335;
+$medium: lighten( $dark, 6 );
+$primary: getPrimary( $dark );
+$text: lighten( $dark, 30 );
+$text_light: lighten( $dark, 50 );
+$secondary: getSecondary( $dark );
+
+$primary-sepia: #d4c69f;
+$text-sepia: darken( $primary-sepia, 25 );
+$text-sepia_light: darken( $primary-sepia, 15 );
+$medium-sepia: lighten( $primary-sepia, 20 );
+
+$medium-light: #e5e5ea;
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.main-wrapper {
+    background: $dark;
+    color: $text;
+
+    &.sepia {
+        background: #FFFFFF;
+        color: $text-sepia;
+    }
+
+    &.light {
+        background: darken( #FFFFFF, 5 );
+        color: #000000;
+    }
+}
+
+button {
+    display: inline-block;
+    height: 30px;
+    line-height: 28px;
+    border-radius: 30px;
+    border: 2px solid;
+    background: transparent;
+    color: $text;
+    margin: 10px 0 0 0;
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-size: 12px;
+    outline: 0;
+    opacity: 0.7;
+    transition: opacity 0.25s ease-in-out;
+    cursor: pointer;
+    white-space: pre;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+
+    &[class*="confirm"] {
+        color: $primary;
+    }
+
+    &[class*="deny"] {
+        color: $secondary;
+    }
+
+    + button {
+        margin-left: 10px;
+    }
+}
+
+/*label*/.more-icon {
+    line-height: 0;
+    margin-left: 4px;
+
+    &__svg {
+        height: 12px;
+        fill: rgba( $text_light, 0.5 );
+    }
+}

@@ -1,0 +1,75 @@
+.notification {
+    position: absolute;
+    width: 200px;
+    max-width: 90%;
+    height: 200px;
+    max-height: 90%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+
+    &__content {
+        position: relative;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+
+        &__icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            fill: $text_light;
+
+            &__checkmark {
+                stroke: $text_light;
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                animation: check 5s 0.35s linear forwards;
+            }
+        }
+
+        &__text {
+            margin: 0;
+            color: $text_light;
+        }
+    }
+}
+
+@keyframes check {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+// Enter From =>
+.notification--appear,
+.notification--enter {
+    opacity: 0;
+    transform: scale(1.5);
+    transition: opacity 0.5s ease, transform 0.25s ease;
+}
+
+// <== Enter To
+.notification--appear.notification--appear--active,
+.notification--enter.notification--enter--active  {
+    opacity: 1;
+    transform: scale(1);
+}
+
+// Exit From =>
+.notification--leave {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.5s ease, transform 0.25s ease;
+}
+// <== Exit To
+.notification--leave.notification--leave--active {
+    opacity: 0;
+    transform: scale(1.25);
+}

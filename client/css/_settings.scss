@@ -1,0 +1,229 @@
+/*ul*/.settings {
+    position: fixed;
+    top: 120px;
+    right: 10px;
+    width: 250px;
+    max-width: 100%;
+    list-style: none;
+    padding: 8px;
+    background: $dark;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 2px rgba(0, 0, 0, 0.1);
+    transition: background 0.25s ease;
+    z-index: 101;
+
+    /*ul*/&__group {
+        border-radius: 4px;
+        background: $medium;
+        padding: 0;
+
+        .sepia & {
+            background: $medium-sepia;
+        }
+
+        .light & {
+            background: #FFFFFF;
+        }
+
+        + .settings__group {
+            margin-top: 20px;
+        }
+    }
+
+    select {
+        -webkit-appearance: none;
+        background: transparent;
+        border: 0;
+        font-size: 16px;
+        color: rgba( $text_light, 0.5 );
+        outline: none;
+
+        .sepia & {
+            color: $text-sepia_light;
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -10px;
+        right: 7px;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent $dark transparent;
+        transition: border-color 0.25s ease;
+    }
+
+    .sepia & {
+        background: #FFFFFF;
+
+        &:after {
+            border-color: transparent transparent #FFFFFF transparent;
+        }
+    }
+
+    .light & {
+        background: darken( #FFFFFF, 5 );
+
+        &:after {
+            border-color: transparent transparent darken( #FFFFFF, 5 ) transparent;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        color: $text_light;
+        transform: translateZ(0);
+        position: relative;
+
+        &.delimeter:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 96%;
+            height: 1px;
+            background: rgba( $text_light, 0.2 );
+        }
+
+        .sepia & {
+            color: $text-sepia;
+
+            &.delimeter:after {
+                background: rgba( $text-sepia_light, 0.2 );
+            }
+        }
+
+        .light & {
+            color: $text;
+
+            &.delimeter:after {
+                background: rgba( $text_light, 0.2 );
+            }
+        }
+
+        &__label {
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre;
+        }
+
+        input {
+            text-align: right;
+        }
+
+        &__exiting {
+            display: block;
+        }
+    }
+}
+
+/*li.settings__item*/.color-scheme {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+
+    &__item {
+        -webkit-appearance: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        outline: none;
+        cursor: pointer;
+
+        .sepia & {
+            border: 1px solid $text_light;
+        }
+
+        &--light {
+            background: #FFFFFF;
+        }
+
+        &--sepia {
+            background: $primary-sepia;
+        }
+
+        &--medium {
+            background: #5a5a5c;
+        }
+
+        &--dark {
+            background: #000000;
+        }
+
+        &:checked {
+            border: 2px solid $primary;
+        }
+    }
+}
+
+// Enter From =>
+.setting--appear,
+.setting--enter {
+    max-height: 0;
+    transition: max-height 0.5s ease;
+}
+
+// <== Enter To
+.setting--appear.setting--appear--active,
+.setting--enter.setting--enter--active  {
+    max-height: 400px;
+}
+
+// Exit From =>
+.setting--leave {
+    max-height: 400px;
+    transition: max-height 0.5s ease;
+}
+
+// <== Exit To
+.setting--leave.setting--leave--active {
+    max-height: 0;
+}
+
+.income-transition {
+    display: block;
+}
+
+.settings__item__exiting {
+    display: block;
+    overflow: hidden;
+}
+
+.settings__modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+// Enter From =>
+// .item--appear,
+.settings--enter {
+    opacity: 0;
+    transition: opacity 0.05s ease;
+}
+
+// <== Enter To
+// .item--appear.item--appear--active,
+.settings--enter.settings--enter--active  {
+    opacity: 1;
+}
+
+// Exit From =>
+.settings--leave {
+    opacity: 1;
+    transition: opacity 0.375s ease;
+}
+
+// <== Exit To
+.settings--leave.settings--leave--active {
+    opacity: 0;
+}

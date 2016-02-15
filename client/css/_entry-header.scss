@@ -1,0 +1,135 @@
+.entry__head {
+    position: relative;
+    overflow: hidden;
+
+    &.active {
+        background: rgba( $secondary, 0.8 );
+    }
+
+    &__wrapper {
+        margin: 28px 0 16px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__actions {
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__action {
+            font-size: 14px;
+            cursor: pointer;
+
+            &--settings {
+                display: block;
+
+                svg {
+                    width: 14px;
+                    height: 14px;
+                    fill: $text_light;
+                }
+            }
+        }
+    }
+}
+
+/*form*/.entry__form {
+    position: relative;
+
+    &__wrapper {
+        margin: 28px 0 18px;
+        padding: 0 20px;
+    }
+}
+
+/*input[type="text"]*/.entry__input {
+    width: 100%;
+    height: 40px;
+    background: $medium;
+    border: 0;
+    margin: 0;
+    padding: 0 42px 0 26px;
+    border-radius: 4px;
+    color: $text_light;
+    font-size: 14px;
+    outline-color: $primary;
+    transition: background 0.25s ease, color 0.25s ease;
+
+    &::-webkit-input-placeholder {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: rgba( $text_light, 0.8 );
+    }
+
+    .sepia & {
+        color: $text-sepia;
+        background: $medium-sepia;
+
+        &::-webkit-input-placeholder {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: rgba( $text-sepia_light, 0.8 );
+        }
+    }
+
+    .light & {
+        color: $text;
+        background: #FFFFFF;
+    }
+}
+
+/*input[type="submit"]*/.entry__button,
+/*button*/.entry__stop {
+    width: 12px;
+    height: 16px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+    font-size: 0;
+    background: url('play-icon.svg' ) center center/12px 16px no-repeat;
+    outline: none;
+}
+
+/*input[type="submit"]*/.entry__button {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    margin: auto;
+}
+
+/*button*/.entry__stop {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    background-image: url( 'stop-icon.svg' );
+    margin-left: 10px;
+    border-radius: 0;
+}
+
+// Enter From =>
+// .item--appear,
+.settings-icon--enter {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+// <== Enter To
+// .item--appear.item--appear--active,
+.settings-icon--enter.settings-icon--enter--active  {
+    opacity: 1;
+}
+
+// Exit From =>
+.settings-icon--leave {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+// <== Exit To
+.settings-icon--leave.settings-icon--leave--active {
+    opacity: 0;
+}

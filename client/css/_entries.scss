@@ -1,0 +1,371 @@
+/*main*/.entry {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*h4*/.no__entries {
+    padding: 0 20px;
+    opacity: 0.5;
+    text-align: center;
+}
+
+/*section*/.entry__content {
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    flex-grow: 1;
+    transform: translateZ(0);
+    padding-bottom: 10px;
+}
+
+/*h4*/.entry__summary {
+    padding: 0 20px;
+    margin: 10px 0;
+    color: $text_light;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    transition: color 0.25s ease;
+
+    .sepia & {
+        color: $text-sepia_light;
+    }
+}
+
+/*span*/.entry__date {
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+}
+
+/*span*/.entry__dollar-total {
+    color: $text;
+    margin-left: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+    transform: translateZ(0);
+    transition: color 0.25s ease;
+
+    &__content {
+        display: block;
+        position: relative;
+    }
+
+    .sepia & {
+        color: rgba( $text-sepia_light, 0.7 );
+    }
+}
+
+/*span*/.entry__time-total {
+    align-self: flex-end;
+
+    &__copy {
+        cursor: pointer;
+    }
+}
+
+/*ul*/.entries {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+/*li*/.entries__item {
+    background: $medium;
+    margin: 0;
+    padding: 0 20px;
+    position: relative;
+    transform: translateZ(0);
+    overflow: hidden;
+    transition: opacity 0.25s ease, background 0.25s ease;
+
+    &__checkbox {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -24px;
+        margin: auto;
+        transition: transform 0.25s ease;
+
+        .editing & {
+            transform: translate3d(44px, 0, 0);
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        transition: transform 0.25s ease;
+        padding: 20px 0;
+
+        .editing & {
+            transform: translate3d(48px, 0, 0);
+            pointer-events: none;
+        }
+
+        .deleting & {
+            opacity: 0.2;
+        }
+    }
+
+    &__options {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+
+        &__icon {
+            fill: rgba( $text_light, 0.5 );
+            display: inline-block;
+            margin-right: 6px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .checkbox:first-of-type {
+            margin-right: 30px;
+        }
+    }
+
+    &.active {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    + /*li*/.entries__item {
+        border-top: 2px solid $dark;
+    }
+
+    .sepia & {
+        background: $medium-sepia;
+
+        + /*li*/.entries__item {
+            border-top: 2px solid lighten( $primary-sepia, 10 );
+        }
+    }
+
+    .light & {
+        background: #FFFFFF;
+
+        + /*li*/.entries__item {
+            border-top: 2px solid darken( #FFFFFF, 5 );
+        }
+    }
+}
+
+/*a*/.entries__info {
+    color: transparent;
+    font-size: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 22px;
+    height: 50px;
+    background: url( 'info-icon.svg' ) center center/14px 14px no-repeat;
+    transition: opacity 0.25s ease-in-out;
+    cursor: pointer;
+    opacity: 0.1;
+
+    /*li*/.entries__item:hover & {
+        opacity: 1;
+        transition: opacity 0.1s ease;
+    }
+}
+
+/*input[type="text"]*/.entries__title {
+    font-size: 16px;
+    color: $text_light;
+    margin: 0;
+    outline: none;
+    padding: 5px;
+    background: transparent;
+    border: 0;
+    font-weight: 600;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+    transition: color 0.25s ease;
+
+    &::selection {
+        background: rgba(255, 255, 255, 0.2);
+        color: $primary;
+    }
+
+    .sepia & {
+        color: $text-sepia_light;
+    }
+}
+
+/*span*/.entries__time {
+    display: inline-block;
+    text-align: right;
+    float: right;
+    margin-right: 30px;
+    white-space: pre;
+    padding: 5px 0;
+    transition: color 0.25s ease;
+
+    input {
+        background: transparent;
+        border: 0;
+        color: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+
+        &::selection {
+            background: transparent;
+        }
+
+        &::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        &:focus {
+            background: rgba(255, 255, 255, 0.2);
+            color: $primary;
+            outline: none;
+        }
+    }
+
+    .sepia & {
+        color: darken( $primary-sepia, 20 );
+    }
+}
+
+/*input[type="number"]*/.entries__hours {
+    text-align: right;
+}
+
+/*a*/.entry__continue {
+    text-decoration: none;
+    color: transparent;
+    font-size: 0;
+    width: 12px;
+    height: 16px;
+    display: block;
+    background: url('play-icon__inactive.svg' ) center center/12px 16px no-repeat;
+
+    &__play {
+        fill: $text;
+
+        .sepia & {
+            fill: $text-sepia;
+        }
+    }
+
+    &__stop {
+        fill: $secondary;
+    }
+
+    > svg {
+        pointer-events: none;
+        transition: fill 0.25s ease;
+    }
+}
+
+.inProgress {
+    display: flex;
+    padding: 12px 15px 12px 26px;
+    background: $dark;
+    border-radius: 4px;
+    transition: background 0.25s ease;
+
+    /*h3*/&__title {
+        flex: 1;
+        font-size: 14px;
+        margin: 0;
+        font-weight: normal;
+    }
+
+    .sepia & {
+        background: $medium-sepia;
+    }
+
+    .light & {
+        color: $text;
+        background: #FFFFFF;
+    }
+}
+
+.inProgress__indicator {
+    width: 200%;
+    height: 100%;
+    background-image: repeating-linear-gradient( 45deg, transparent, transparent 30px, rgba( white, 0.2 ) 30px, rgba( white, 0.2 ) 60px );
+	animation: inProgress 5s linear infinite;
+    animation-fill-mode: forwards;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@keyframes inProgress {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(50%, 0, 0);
+    }
+}
+
+// Enter From =>
+.dollar--appear,
+.dollar--enter {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+// <== Enter To
+.dollar--appear.dollar--appear--active,
+.dollar--enter.dollar--enter--active  {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+// Exit From =>
+.dollar--leave {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+// <== Exit To
+.dollar--leave.dollar--leave--active {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+}
+
+// Enter From =>
+// .item--appear,
+.item--enter {
+    max-height: 0;
+}
+
+// <== Enter To
+// .item--appear.item--appear--active,
+.item--enter.item--enter--active  {
+    max-height: 100px;
+    transition: max-height 0.5s ease;
+}
+
+// Exit From =>
+.item--leave {
+    max-height: 100px;
+}
+
+// <== Exit To
+.item--leave.item--leave--active {
+    max-height: 0;
+    transition: max-height 0.5s ease;
+}

@@ -1,0 +1,142 @@
+{
+  "dependencies": {
+    "react": {
+      "version": "https://npm.apple.com/react/-/react-0.14.6.tgz",
+      "dependencies": {
+        "envify": {
+          "version": "https://npm.apple.com/envify/-/envify-3.4.0.tgz",
+          "dependencies": {
+            "through": {
+              "version": "https://npm.interactive-apps.apple.com/through/-/through-2.3.8.tgz"
+            },
+            "jstransform": {
+              "version": "https://npm.apple.com/jstransform/-/jstransform-10.1.0.tgz",
+              "dependencies": {
+                "base62": {
+                  "version": "https://npm.apple.com/base62/-/base62-0.1.1.tgz"
+                },
+                "esprima-fb": {
+                  "version": "https://npm.apple.com/esprima-fb/-/esprima-fb-13001.1001.0-dev-harmony-fb.tgz"
+                },
+                "source-map": {
+                  "version": "https://npm.apple.com/source-map/-/source-map-0.1.31.tgz",
+                  "dependencies": {
+                    "amdefine": {
+                      "version": "https://npm.interactive-apps.apple.com/amdefine/-/amdefine-1.0.0.tgz"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "fbjs": {
+          "version": "https://npm.apple.com/fbjs/-/fbjs-0.6.1.tgz",
+          "dependencies": {
+            "core-js": {
+              "version": "https://npm.apple.com/core-js/-/core-js-1.2.6.tgz"
+            },
+            "loose-envify": {
+              "version": "https://npm.apple.com/loose-envify/-/loose-envify-1.1.0.tgz",
+              "dependencies": {
+                "js-tokens": {
+                  "version": "https://npm.apple.com/js-tokens/-/js-tokens-1.0.2.tgz"
+                }
+              }
+            },
+            "promise": {
+              "version": "https://npm.apple.com/promise/-/promise-7.1.1.tgz",
+              "dependencies": {
+                "asap": {
+                  "version": "https://npm.apple.com/asap/-/asap-2.0.3.tgz"
+                }
+              }
+            },
+            "ua-parser-js": {
+              "version": "https://npm.apple.com/ua-parser-js/-/ua-parser-js-0.7.10.tgz"
+            },
+            "whatwg-fetch": {
+              "version": "https://npm.apple.com/whatwg-fetch/-/whatwg-fetch-0.9.0.tgz"
+            }
+          }
+        }
+      }
+    },
+    "react-dom": {
+      "version": "https://npm.apple.com/react-dom/-/react-dom-0.14.6.tgz"
+    },
+    "react-svg-morph": {
+      "version": "https://npm.apple.com/react-svg-morph/-/react-svg-morph-0.1.3.tgz",
+      "dependencies": {
+        "react-render-to-json": {
+          "version": "https://npm.apple.com/react-render-to-json/-/react-render-to-json-0.0.1.tgz"
+        },
+        "svgpath": {
+          "version": "https://npm.apple.com/svgpath/-/svgpath-2.1.5.tgz"
+        },
+        "react": {
+          "version": "https://npm.apple.com/react/-/react-0.14.6.tgz",
+          "dependencies": {
+            "envify": {
+              "version": "https://npm.apple.com/envify/-/envify-3.4.0.tgz",
+              "dependencies": {
+                "through": {
+                  "version": "https://npm.interactive-apps.apple.com/through/-/through-2.3.8.tgz"
+                },
+                "jstransform": {
+                  "version": "https://npm.apple.com/jstransform/-/jstransform-10.1.0.tgz",
+                  "dependencies": {
+                    "base62": {
+                      "version": "https://npm.apple.com/base62/-/base62-0.1.1.tgz"
+                    },
+                    "esprima-fb": {
+                      "version": "https://npm.apple.com/esprima-fb/-/esprima-fb-13001.1001.0-dev-harmony-fb.tgz"
+                    },
+                    "source-map": {
+                      "version": "https://npm.apple.com/source-map/-/source-map-0.1.31.tgz",
+                      "dependencies": {
+                        "amdefine": {
+                          "version": "https://npm.interactive-apps.apple.com/amdefine/-/amdefine-1.0.0.tgz"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "fbjs": {
+              "version": "https://npm.apple.com/fbjs/-/fbjs-0.6.1.tgz",
+              "dependencies": {
+                "core-js": {
+                  "version": "https://npm.apple.com/core-js/-/core-js-1.2.6.tgz"
+                },
+                "loose-envify": {
+                  "version": "https://npm.apple.com/loose-envify/-/loose-envify-1.1.0.tgz",
+                  "dependencies": {
+                    "js-tokens": {
+                      "version": "https://npm.apple.com/js-tokens/-/js-tokens-1.0.2.tgz"
+                    }
+                  }
+                },
+                "promise": {
+                  "version": "https://npm.apple.com/promise/-/promise-7.1.1.tgz",
+                  "dependencies": {
+                    "asap": {
+                      "version": "https://npm.apple.com/asap/-/asap-2.0.3.tgz"
+                    }
+                  }
+                },
+                "ua-parser-js": {
+                  "version": "https://npm.apple.com/ua-parser-js/-/ua-parser-js-0.7.10.tgz"
+                },
+                "whatwg-fetch": {
+                  "version": "https://npm.apple.com/whatwg-fetch/-/whatwg-fetch-0.9.0.tgz"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

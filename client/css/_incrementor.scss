@@ -1,0 +1,36 @@
+.incrementer {
+    display: flex;
+    flex: 1;
+
+    &__button {
+        display: block;
+        width: 30px;
+        height: 30px;
+        line-height: 21px;
+        text-decoration: none;
+        border: 2px solid;
+        color: $primary;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 28px;
+    }
+
+    &__value {
+        flex: 1;
+        flex-grow: 1;
+        flex-shrink: 1;
+        text-align: center !important;
+        background: transparent;
+        border: 0;
+        font-size: 18px;
+        color: $text_light;
+        pointer-events: none;
+        user-select: none;
+        outline: none;
+        transition: color 0.25s ease;
+
+        .sepia & {
+            color: $text-sepia_light;
+        }
+    }
+}
