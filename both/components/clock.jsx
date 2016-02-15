@@ -25,14 +25,16 @@ Clock = React.createClass({
     },
     tick: function() {
         var difference  = Date.now() - this.state.initialTime,
-            current     = msToLegible( difference );
+            current     = msToLegible( difference ),
+            newDate     = new Date();
 
         var doc = {
             _id: this.props.current_id,
             legible: {
                 hour: current.hours,
                 min: current.minutes
-            }
+            },
+            date: `${newDate.getMonth() + 1}-${newDate.getDate()}-${newDate.getFullYear()}`
         };
 
         Meteor.call( 'editEntry', doc );

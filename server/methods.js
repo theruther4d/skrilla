@@ -18,6 +18,7 @@ Meteor.methods({
             return false;
         }
 
+
         var oldEntry = Entries.findOne( { _id: args._id } );
 
         var updatedEntry = {
@@ -26,10 +27,11 @@ Meteor.methods({
             legible: {
                 hour: args.legible && args.legible.hour ? args.legible.hour : oldEntry.legible.hour,
                 min: args.legible && args.legible.min ? args.legible.min : oldEntry.legible.min,
-            }
+            },
+            date: args.date ? args.date : oldEntry.date
         };
 
-        Entries.update( args._id, { $set: { note: updatedEntry.note, legible: updatedEntry.legible } }, handleUpdate );
+        Entries.update( args._id, { $set: { note: updatedEntry.note, legible: updatedEntry.legible, date: updatedEntry.date } }, handleUpdate );
 
         function handleUpdate( err, docs ) {
             if( err ) {
